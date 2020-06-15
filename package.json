@@ -1,0 +1,35 @@
+{
+  "name": "topsearch",
+  "version": "2.0.0",
+  "description": "热榜集合2.0",
+  "main": "app.js",
+  "dependencies": {
+    "koa": "^2.12.1",
+    "koa-bodyparser": "^4.3.0",
+    "koa-router": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.11.3",
+    "@types/koa-bodyparser": "^4.3.0",
+    "@types/koa-router": "^7.4.1",
+    "@types/koa2-cors": "^2.0.1",
+    "koa2-cors": "^2.0.6",
+    "module-alias": "^2.2.2",
+    "require-directory": "^2.1.1",
+    "rimraf": "^3.0.2",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5"
+  },
+  "_moduleAliases": {
+    "@src": "src"
+  },
+  "scripts": {
+    "rimraf": "./node_modules/rimraf/bin.js",
+    "clean": "rimraf dist/",
+    "dev": "npm run clean && tsc && set NODE_ENV=development && nodemon --watch src/**/* -e ts,tsx --exec ts-node ./src/app.ts",
+    "build": "set NODE_ENV=production && rm -rf dist/* && tsc",
+    "delete": "rm -rf dist"
+  },
+  "author": "ctts",
+  "license": "ISC"
+}

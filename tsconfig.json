@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2017",
+    "noImplicitAny": true,
+    "outDir": "./dist",
+    "sourceMap": true,
+    "allowJs": true,
+    "newLine": "LF",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ]
+  // "include": [
+  //   "src/**/*"
+  // ]
+}
