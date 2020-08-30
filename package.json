@@ -6,12 +6,20 @@
   "dependencies": {
     "koa": "^2.12.0",
     "koa-bodyparser": "^4.3.0",
+    "koa-helmet": "^5.2.0",
+    "koa-jwt": "^4.0.0",
     "koa-router": "^9.0.1",
+    "log4js": "^6.3.0",
     "require-directory": "^2.1.1"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www",
+    "dev": "pm2 start app.js --env dev",
+    "test": "pm2 start app.js --env test",
+    "pro": "pm2 start app.js --env pro",
+    "logs": "pm2 logs",
+    "stop": "pm2 stop app.js"
   },
   "author": "ctts",
   "license": "ISC"
