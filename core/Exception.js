@@ -7,6 +7,15 @@ class HttpException extends Error {
     }
 }
 
+class ParameterException extends HttpException{
+    constructor(msg = '参数错误', errorCode = 10000, code = 400) {
+        super()
+        this.errorCode = errorCode
+        this.code = code
+        this.msg = msg
+    }
+}
+
 class NotFound extends HttpException {
     constructor(msg = '资源未找到', errorCode) {
         super()
@@ -18,5 +27,6 @@ class NotFound extends HttpException {
 
 module.exports = {
     HttpException,
-    NotFound
+    NotFound,
+    ParameterException
 }

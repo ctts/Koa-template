@@ -1,12 +1,10 @@
-const { HttpException } = require('../core/HttpException')
+const { HttpException } = require('../core/exception')
 
 const catchError = async (ctx, next) => {
     try {
         await next()
     } catch (err) {
-        err = new Error('test')
-
-        if (global.config.env === 'dev') {
+        if (process.env.NODE_ENV === 'dev') {
             throw err
         }
         const { msg, code, errorCode } = err

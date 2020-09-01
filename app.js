@@ -1,7 +1,6 @@
 const Koa = require('koa');
 const InitManager = require('./core/init')
 const app = new Koa();
-const config = require('./config')
 const helmet = require("koa-helmet");
 const parser = require('koa-bodyparser')
 const catchError = require('./middlewares/exceptions')
@@ -15,4 +14,5 @@ app.use(parser()) // bodyparser中间件
 
 // 初始化
 InitManager.initCore(app)
-app.listen(config.port);
+
+app.listen(global.config.port);

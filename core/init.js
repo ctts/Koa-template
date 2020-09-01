@@ -9,13 +9,11 @@ class InitManager {
         InitManager.app = app
         InitManager.initLoadRouters()
         InitManager.initJWT(app)
-        // InitManager.initConfig()
+        InitManager.initConfig()
     }
-    // static initConfig(path) {
-    //     const configPath = path || `${process.cwd()}/config/config.js`
-    //     const config = require(configPath)
-    //     global.config = config
-    // }
+    static initConfig() {
+        global.config = config
+    }
     // 初始化路由
     static initLoadRouters() {
         requireDirectory(module, `${process.cwd()}/app/routes`, {
