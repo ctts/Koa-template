@@ -1,6 +1,6 @@
 const Router = require('koa-router')
 const router = new Router
-const { HttpException } = require('../../../core/HttpException')
+const { HttpException } = require('@/core/Exception')
 
 router.get('/test/:name', (ctx, next) => {
     // ctx.router available

@@ -5,6 +5,7 @@ const helmet = require("koa-helmet");
 const parser = require('koa-bodyparser')
 const catchError = require('./middlewares/exceptions')
 const { loggerMiddleware } = require('./middlewares/logger')
+require('module-alias/register')
 
 // 中间件
 app.use(loggerMiddleware) // 日志打印
