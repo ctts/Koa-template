@@ -1,5 +1,9 @@
 module.exports = {
-    port:3001,
-    logPath:'../log/',
-    secret:'secret',
+    logPath: '../log/',
+    secret: 'secret',
+    dbName: 'DownloadGame',
+    user: 'root',
+    password: '88888888',
+    host: '127.0.0.1',
+    port: 3306
 }

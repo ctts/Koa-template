@@ -16,4 +16,4 @@ app.use(parser()) // bodyparser中间件
 // 初始化
 InitManager.initCore(app)
 
-app.listen(global.config.port);
+app.listen(3001);

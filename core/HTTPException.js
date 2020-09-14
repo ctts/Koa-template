@@ -17,16 +17,26 @@ class ParameterException extends HttpException{
 }
 
 class NotFound extends HttpException {
-    constructor(msg = '资源未找到', errorCode) {
+    constructor(msg = '资源未找到') {
         super()
         this.code = 404
         this.errorCode = 10001
         this.msg = msg
     }
 }
+// 虽然是操作成功,但是统一是以异常的形式抛出,方便管理
+class Success extends HttpException{
+    constructor(msg, errorCode) {
+        super()
+        this.code =  201
+        this.errorCode = errorCode || 0 
+        this.msg = msg || 'ok'
+    }
+}
 
 module.exports = {
     HttpException,
     NotFound,
-    ParameterException
+    ParameterException,
+    Success,
 }

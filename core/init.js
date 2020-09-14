@@ -1,6 +1,7 @@
 const requireDirectory = require('require-directory')
 const jwt = require('koa-jwt');
 const config = require('../config')
+const err = require('../core/HTTPException')
 const Router = require('koa-router');
 
 class InitManager {
@@ -10,6 +11,9 @@ class InitManager {
         InitManager.initLoadRouters()
         InitManager.initJWT(app)
         InitManager.initConfig()
+        InitManager.initError()
+        InitManager.initDB()
+        InitManager.initTest()
     }
     static initConfig() {
         global.config = config
@@ -19,19 +23,20 @@ class InitManager {
         requireDirectory(module, `${process.cwd()}/app/routes`, {
             visit: (obj, path) => {
                 obj instanceof Router && InitManager.app.use(obj.routes())
-                // } else {
-                // if (!!path.match(/\/routes\/private\//g)) {
-                //     // 私有,需要 jwt 验证
-                //     obj instanceof Router && InitManager.app.use(obj.routes())
-                // } else {
-                //     // 公有,无需验证
-                //     obj instanceof Router && InitManager.app.use(obj.routes())
-                // }
             }
         });
     }
     static initJWT(app) {
         app.use(jwt({ secret: config.secret }).unless({ path: [/\/routes\/public/] }));
+    }
+    static initTest() {
+        require('@app/controllers').CrewlerGame
+    }
+    static initDB() {
+        require('./db')
+    }
+    static initError() {
+        global.err = err
     }
 }
 

@@ -4,6 +4,7 @@
   "description": "koa模板",
   "main": "app.js",
   "dependencies": {
+    "crawler": "^1.2.2",
     "joi": "^17.2.1",
     "koa": "^2.12.0",
     "koa-bodyparser": "^4.3.0",
@@ -12,20 +13,26 @@
     "koa-router": "^9.0.1",
     "log4js": "^6.3.0",
     "module-alias": "^2.2.2",
-    "require-directory": "^2.1.1"
+    "mysql2": "^2.1.0",
+    "require-directory": "^2.1.1",
+    "sequelize": "^6.3.5"
   },
   "_moduleAliases": {
     "@app": "./app/",
+<<<<<<< HEAD
     "@": "."
+=======
+    "@":"."
+>>>>>>> 416ea69de36b750a92570b439373bd4e0caa2a8a
   },
   "scripts": {
     "start": "node ./app.js",
-    "dev": "pm2 start app.js --env dev",
+    "dev": "pm2 start app.js --watch --env dev",
     "test": "pm2 start app.js --env test",
     "pro": "pm2 start app.js --env pro",
     "logs": "pm2 logs",
     "stop": "pm2 stop app.js"
   },
-  "author": "{{author}}",
-  "license": "{{license}}"
+  "author": "ctts",
+  "license": "MIT"
 }
